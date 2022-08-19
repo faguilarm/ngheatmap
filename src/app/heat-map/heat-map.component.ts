@@ -1,4 +1,6 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
+
+const MAX_SCALE = 255;
 
 type DataPoint = {
   value: number;
@@ -7,9 +9,10 @@ type DataPoint = {
 @Component({
   selector: 'app-heat-map',
   templateUrl: './heat-map.component.html',
-  styleUrls: ['./heat-map.component.scss']
+  styleUrls: ['./heat-map.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class HeatMapComponent implements OnInit {
+export class HeatMapComponent implements OnChanges {
 
   @Input()
   data: number[][] = [];
@@ -18,23 +21,38 @@ export class HeatMapComponent implements OnInit {
 
   constructor() { }
 
-  ngOnInit(): void {
+  ngOnChanges(changes: SimpleChanges): void {
+    if(changes['data'].currentValue?.length > 0) {
+      this.setupData();
+    }    
+  }
+
+  setupData() {
+    //convert to 1 dimension array for easier processing
     const flat = this.data.flat();
-    const sort = [...flat].sort();
-    const min = sort[0];
-    const max = sort[sort.length-1];
-    const diff = max - min;
-    const maxScale = 255;
-    const step = Math.floor(maxScale / diff);
+    const { min, max, diff } = this.getRangeValues(flat);
+    const step = Math.floor(MAX_SCALE / diff);
     this.gridColumns = `repeat(${this.data[0].length}, minmax(0, 1fr))`;
     this.scaledData = flat.map(point => {
       let scaledValue = (max - point) * step;
-      const rgb = `rgb(${scaledValue},${scaledValue},${maxScale})`
+      const rgb = `rgb(${scaledValue},${scaledValue},${MAX_SCALE})`
       return {
         value: point,
         rgb: rgb
       }
     });
     console.log(this.scaledData)
+  }
+
+  getRangeValues(data: number[]) {
+    const sortedData = [...data].sort();
+    const min = sortedData[0];
+    const max = sortedData[sortedData.length-1];
+    const diff = max - min;
+    return {
+      min,
+      max,
+      diff
+    };
   }
 }
