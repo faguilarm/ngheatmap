@@ -9,13 +9,16 @@
     }
   
     .cell {
-      @apply w-16 h-16 p-4 leading-4 text-center align-middle ;
+      @apply w-16 h-16 p-4 leading-4 text-center align-middle font-bold font-mono rounded-md;
     }
   }
 
   .heat-map-scale {
-    @apply w-16 h-auto ml-4 rounded-lg;
+    @apply w-16 h-auto ml-4 rounded-lg relative font-bold;
     background: rgb(255,255,255);
     background: linear-gradient(0deg, rgba(255,255,255,1) 0%, rgba(0,0,255,1) 100%);
+    .labels {
+      @apply absolute text-center inset-x-0 font-bold font-mono;
+    }
   }  
 }

@@ -13,14 +13,11 @@ export class HomeComponent implements OnInit {
   end = 1000;
 
   heatmapData: number[][] = [];
-    /*= [ [7,4,8],
-    [6,1,9],
-    [5,2,3]]; */
-  
 
   constructor() { }
 
   ngOnInit(): void {
+    this.generate();
   }
 
   //update heat map with new data
@@ -36,7 +33,6 @@ export class HomeComponent implements OnInit {
         matrix[Math.floor(index / this.columns)].push(value)
       }
     });
-    console.log(matrix)
     this.heatmapData = matrix;
   }
 
