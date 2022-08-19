@@ -1,0 +1,21 @@
+.heat-map-container {
+  @apply flex;
+
+  .heat-map-chart {
+    @apply grid gap-1 p-4;
+
+    .row {
+      @apply flex;
+    }
+  
+    .cell {
+      @apply w-16 h-16 p-4 leading-4 text-center align-middle;
+    }
+  }
+
+  .heat-map-scale {
+    @apply w-16 h-auto p-4;
+    background: rgb(255,255,255);
+    background: linear-gradient(0deg, rgba(255,255,255,1) 0%, rgba(0,0,255,1) 100%);
+  }  
+}

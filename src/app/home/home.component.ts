@@ -8,9 +8,9 @@ import { Component, OnInit } from '@angular/core';
 export class HomeComponent implements OnInit {
 
   heatmapData = [
-    [1,2,3],
-    [4,5,6],
-    [7,8,9]
+    [7,4,8],
+    [6,1,9],
+    [5,2,3]
   ];
 
   constructor() { }

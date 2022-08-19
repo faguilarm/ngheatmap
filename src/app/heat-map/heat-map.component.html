@@ -1,8 +1,13 @@
 <p>heat-map works!</p>
-<div class="flex flex-col">
-  <div *ngFor="let row of data" class="flex">
-    <div *ngFor="let cell of row" class="flex">
-      {{cell}}
+<div class="heat-map-container">
+  <div class="heat-map-chart" [style.grid-template-columns]="gridColumns">
+    <div *ngFor="let cell of scaledData" class="cell"
+      [style.background-color]="cell.rgb">
+        {{cell.value}}
     </div>
+  </div>
+
+  <div class="heat-map-scale"> 
+
   </div>
 </div>
