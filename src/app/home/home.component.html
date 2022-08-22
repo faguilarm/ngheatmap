@@ -1,29 +1,25 @@
 
 <div class="flex flex-col p-8 w-full md:max-w-screen-sm lg:max-w-screen-md xl:max-w-screen-lg mx-auto">
   <p class="text-center text-xl mb-4 text-blue-600 font-bold">HeatMap</p>
-  <p class="text-center text-sm mb-2 text-orange-400">Choose the parameters and go!</p>
-  <div class="flex flex-wrap mb-8 justify-center">
+  <p class="text-center text-sm mb-2 text-orange-400 font-bold">Choose the parameters and go!</p>
+  <div class="params-container">
     <div>
-      <label for="rows" class="block text-sm font-medium text-gray-700">Rows</label>
-      <input type="number" name="rows" id="rows" min="1" max="10" [(ngModel)]="rows"
-        class="block w-full pr-10 border-red-300 text-red-900 placeholder-red-300 focus:outline-none focus:ring-red-500 focus:border-red-500 sm:text-sm rounded-md">
+      <label for="rows">Rows</label>
+      <input type="number" name="rows" id="rows" min="1" max="10" [(ngModel)]="rows">
     </div>
     <div>
-      <label for="columns" class="block text-sm font-medium text-gray-700">Columns</label>
-      <input type="number" name="columns" id="columns" min="1" max="10" [(ngModel)]="columns"
-        class="block w-full pr-10 border-red-300 text-red-900 placeholder-red-300 focus:outline-none focus:ring-red-500 focus:border-red-500 sm:text-sm rounded-md">
+      <label for="columns">Columns</label>
+      <input type="number" name="columns" id="columns" min="1" max="10" [(ngModel)]="columns">
     </div>
     <div>
-      <label for="start" class="block text-sm font-medium text-gray-700">Range start</label>
-      <input type="number" name="start" id="start" min="0" max="1000" step="10" [(ngModel)]="start"
-      class="block w-full pr-10 border-red-300 text-red-900 placeholder-red-300 focus:outline-none focus:ring-red-500 focus:border-red-500 sm:text-sm rounded-md">
+      <label for="start">Range start</label>
+      <input type="number" name="start" id="start" min="0" max="1000" step="10" [(ngModel)]="start">
     </div>
     <div>
-      <label for="end" class="block text-sm font-medium text-gray-700">Range end</label>
-      <input type="number" name="end" id="end" min="0" max="1000" step="10" [(ngModel)]="end"
-        class="block w-full pr-10 border-red-300 text-red-900 placeholder-red-300 focus:outline-none focus:ring-red-500 focus:border-red-500 sm:text-sm rounded-md">
+      <label for="end">Range end</label>
+      <input type="number" name="end" id="end" min="0" max="1000" step="10" [(ngModel)]="end">
     </div>
-    <button class="bg-blue-400 p-4 text-white font-bold rounded-lg" (click)="generate()">Generate</button>
+    <button (click)="generate()">Generate</button>
   </div>
 
   <app-heat-map [data]="heatmapData"></app-heat-map>

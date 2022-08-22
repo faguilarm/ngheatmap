@@ -9,7 +9,7 @@
     }
   
     .cell {
-      @apply w-16 h-16 p-4 leading-4 text-center align-middle font-bold font-mono rounded-md;
+      @apply w-12 h-12 lg:w-14 lg:h-14 flex justify-center items-center font-bold font-mono rounded-md;
     }
   }
 

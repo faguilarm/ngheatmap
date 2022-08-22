@@ -42,10 +42,10 @@ export class HeatMapComponent implements OnChanges {
     //set the column number for the CSS Grid
     this.gridColumns = `repeat(${this.data[0].length}, minmax(0, 1fr))`;
 
-    //calculate the values inside the scale of 0-255 to use in RGB
+    //calculate the values inside the scale of 0-255 to use as RGB (Red and Green only)
     this.scaledData = flat.map(point => {
       let scaledValue = Math.floor((max - point) * step);
-      console.debug("Value %s, Scaled and inverted value for RGB (Red and Green) %s", point, scaledValue);
+      //console.debug("Value %s, Scaled and inverted value for RGB (Red and Green) %s", point, scaledValue);
       const rgb = `rgb(${scaledValue},${scaledValue},${MAX_SCALE})`
       return {
         value: point,

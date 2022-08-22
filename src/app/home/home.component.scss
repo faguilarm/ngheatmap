@@ -1,0 +1,18 @@
+.params-container {
+  @apply flex flex-wrap mb-8 justify-center items-center;
+  > div {
+    @apply w-1/2 sm:w-auto mt-2;
+
+    label {
+      @apply block text-sm font-medium text-gray-500;
+    }
+
+    input {
+      @apply block w-full pr-10 text-orange-400 sm:text-sm font-bold;
+    }
+  }
+
+  button {
+    @apply bg-blue-400 p-2 mt-2 text-white font-bold rounded-lg;
+  }
+}
