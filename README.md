@@ -1,5 +1,12 @@
 # HeatMap
 
+Generates a heatmap from randomly generated data.
+* Up to 10 rows/columns.
+* The range for the generated values defaults to 0-1000.
+* Data points are displayed in the blue scale (RGB).
+
+The project can be seen live [here](http://ngheatmap.vercel.app/).
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.1.3.
 
 ## Development server
